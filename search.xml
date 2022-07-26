@@ -18,6 +18,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 框架 </tag>
+            
+            <tag> Spring </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -37,6 +45,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 框架 </tag>
+            
+            <tag> SpringBoot </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -55,6 +71,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 框架 </tag>
+            
+            <tag> MyBatisPlus </tag>
+            
+        </tags>
       
     </entry>
     
