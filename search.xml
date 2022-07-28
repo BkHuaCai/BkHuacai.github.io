@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>2022年8月学习计划</title>
+      <link href="/2022/07/28/study20228/"/>
+      <url>/2022/07/28/study20228/</url>
+      
+        <content type="html"><![CDATA[<h3 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h3><ul><li><p><input checked disabled type="checkbox"> </p><h5 id="SSM框架"><a href="#SSM框架" class="headerlink" title="SSM框架"></a><a href="https://www.bilibili.com/video/BV1Fi4y1S7ix">SSM框架</a></h5><p>Spring框架、SpringMVC框架、Maven高级、SpringBoot框架、MyBatis-Plus框架</p></li><li><p><input disabled type="checkbox"> </p><h5 id="Maven入门"><a href="#Maven入门" class="headerlink" title="Maven入门"></a><a href="https://www.bilibili.com/video/BV1Ah411S7ZE">Maven入门</a></h5><p>高级部分内容</p><p><img src="/2022/07/28/study20228/12587455245.png"></p></li><li><p><input disabled type="checkbox"> </p><h5 id="Spring高级"><a href="#Spring高级" class="headerlink" title="Spring高级"></a><a href="https://www.bilibili.com/video/BV1P44y1N7QG">Spring高级</a></h5><p>全面深度讲解spring5底层原理</p></li><li><p><input disabled type="checkbox"> </p><h5 id="Spring注解开发"><a href="#Spring注解开发" class="headerlink" title="Spring注解开发"></a><a href="https://www.bilibili.com/video/BV1hE411o7w7">Spring注解开发</a></h5><p>SpringBoot的基础</p></li><li><p><input disabled type="checkbox"> </p><h5 id="MybatisPlus"><a href="#MybatisPlus" class="headerlink" title="MybatisPlus"></a><a href="https://www.bilibili.com/video/BV1rE41197jR">MybatisPlus</a></h5><p>MyBatis 的增强工具</p></li><li><p><input disabled type="checkbox"> </p><h5 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a><a href="https://www.bilibili.com/video/BV15b4y1a7yG">SpringBoot</a></h5><p>springboot零基础到项目实战</p></li></ul><h3 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h3><p>​小码哥</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习计划 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习计划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>测试</title>
       <link href="/2022/07/28/test/"/>
       <url>/2022/07/28/test/</url>
