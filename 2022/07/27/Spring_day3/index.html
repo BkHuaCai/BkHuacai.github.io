@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Spring--day03 | BkHuacai</title><meta name="keywords" content="框架,Spring"><meta name="author" content="BkHuacai"><meta name="copyright" content="BkHuacai"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Spring_day03今日目标   理解并掌握AOP相关概念 能够说出AOP的工作流程 能运用AOP相关知识完成对应的案例编写 重点掌握Spring的声明式事务管理   1，AOP简介前面我们在介绍Spring的时候说过，Spring有两个核心的概念，一个是IOC&#x2F;DI，一个是AOP。 前面已经对IOC&#x2F;DI进行了系统的学习，接下来要学习它的另一个核心内容，就是&#x3D;&#x3D;AOP&amp;#">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Spring--day03 | BkHuacai</title><meta name="keywords" content="框架,Spring"><meta name="author" content="BkHuacai"><meta name="copyright" content="BkHuacai"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Spring_day03  理解并掌握AOP相关概念 能够说出AOP的工作流程 能运用AOP相关知识完成对应的案例编写 重点掌握Spring的声明式事务管理   1，AOP简介前面我们在介绍Spring的时候说过，Spring有两个核心的概念，一个是IOC&#x2F;DI，一个是AOP。 前面已经对IOC&#x2F;DI进行了系统的学习，接下来要学习它的另一个核心内容，就是AOP。 对于AOP,我们前面提过一句话是：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring--day03">
 <meta property="og:url" content="http://example.com/2022/07/27/Spring_day3/index.html">
 <meta property="og:site_name" content="BkHuacai">
-<meta property="og:description" content="Spring_day03今日目标   理解并掌握AOP相关概念 能够说出AOP的工作流程 能运用AOP相关知识完成对应的案例编写 重点掌握Spring的声明式事务管理   1，AOP简介前面我们在介绍Spring的时候说过，Spring有两个核心的概念，一个是IOC&#x2F;DI，一个是AOP。 前面已经对IOC&#x2F;DI进行了系统的学习，接下来要学习它的另一个核心内容，就是&#x3D;&#x3D;AOP&amp;#">
+<meta property="og:description" content="Spring_day03  理解并掌握AOP相关概念 能够说出AOP的工作流程 能运用AOP相关知识完成对应的案例编写 重点掌握Spring的声明式事务管理   1，AOP简介前面我们在介绍Spring的时候说过，Spring有两个核心的概念，一个是IOC&#x2F;DI，一个是AOP。 前面已经对IOC&#x2F;DI进行了系统的学习，接下来要学习它的另一个核心内容，就是AOP。 对于AOP,我们前面提过一句话是：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2022/07/27/Spring_day3/fm.png">
 <meta property="article:published_time" content="2022-07-27T14:35:20.000Z">
-<meta property="article:modified_time" content="2022-07-28T03:25:22.609Z">
+<meta property="article:modified_time" content="2022-08-02T05:20:15.032Z">
 <meta property="article:author" content="BkHuacai">
 <meta property="article:tag" content="框架">
 <meta property="article:tag" content="Spring">
@@ -54,7 +54,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2022-07-28 11:25:22'
+  postUpdate: '2022-08-02 13:20:15'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -143,8 +143,7 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw far fa-calendar-alt"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/2022/07/27/Spring_day3/top.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">BkHuacai</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw far fa-calendar-alt"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Spring--day03</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-27T14:35:20.000Z" title="发表于 2022-07-27 22:35:20">2022-07-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-28T03:25:22.609Z" title="更新于 2022-07-28 11:25:22">2022-07-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/">Java开发框架</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">18.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>69分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Spring--day03"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Spring-day03"><a href="#Spring-day03" class="headerlink" title="Spring_day03"></a>Spring_day03</h2><p><strong>今日目标</strong></p>
-<blockquote>
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw far fa-calendar-alt"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/2022/07/27/Spring_day3/top.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">BkHuacai</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw far fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw far fa-calendar-alt"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Spring--day03</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-27T14:35:20.000Z" title="发表于 2022-07-27 22:35:20">2022-07-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-02T05:20:15.032Z" title="更新于 2022-08-02 13:20:15">2022-08-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/">Java开发框架</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">18k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>69分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Spring--day03"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Spring-day03"><a href="#Spring-day03" class="headerlink" title="Spring_day03"></a>Spring_day03</h2><blockquote>
 <ul>
 <li>理解并掌握AOP相关概念</li>
 <li>能够说出AOP的工作流程</li>
@@ -153,8 +152,8 @@
 </ul>
 </blockquote>
 <h2 id="1，AOP简介"><a href="#1，AOP简介" class="headerlink" title="1，AOP简介"></a>1，AOP简介</h2><p>前面我们在介绍Spring的时候说过，Spring有两个核心的概念，一个是<code>IOC/DI</code>，一个是<code>AOP</code>。</p>
-<p>前面已经对<code>IOC/DI</code>进行了系统的学习，接下来要学习它的另一个核心内容，就是&#x3D;&#x3D;AOP&#x3D;&#x3D;。</p>
-<p>对于AOP,我们前面提过一句话是:&#x3D;&#x3D;AOP是在不改原有代码的前提下对其进行增强。&#x3D;&#x3D;</p>
+<p>前面已经对<code>IOC/DI</code>进行了系统的学习，接下来要学习它的另一个核心内容，就是AOP。</p>
+<p>对于AOP,我们前面提过一句话是：AOP是在不改原有代码的前提下对其进行增强。</p>
 <p>对于下面的内容，我们主要就是围绕着这一句话进行展开学习，主要学习两方面内容<code>AOP核心概念</code>,<code>AOP作用</code>:</p>
 <h3 id="1-1-什么是AOP"><a href="#1-1-什么是AOP" class="headerlink" title="1.1 什么是AOP?"></a>1.1 什么是AOP?</h3><ul>
 <li>AOP(Aspect Oriented Programming)面向切面编程，一种编程范式，指导开发者如何组织程序结构。<ul>
@@ -184,18 +183,18 @@
 </ul>
 <p>说了这么多，Spring到底是如何实现的呢?</p>
 <p><img src="/2022/07/27/Spring_day3/1630144353462.png" alt="1630144353462"></p>
-<p>(1)前面一直在强调，Spring的AOP是对一个类的方法在不进行任何修改的前提下实现增强。对于上面的案例中BookServiceImpl中有<code>save</code>,<code>update</code>,<code>delete</code>和<code>select</code>方法,这些方法我们给起了一个名字叫&#x3D;&#x3D;连接点&#x3D;&#x3D;</p>
-<p>(2)在BookServiceImpl的四个方法中，<code>update</code>和<code>delete</code>只有打印没有计算万次执行消耗时间，但是在运行的时候已经有该功能，那也就是说<code>update</code>和<code>delete</code>方法都已经被增强，所以对于需要增强的方法我们给起了一个名字叫&#x3D;&#x3D;切入点&#x3D;&#x3D;</p>
-<p>(3)执行BookServiceImpl的update和delete方法的时候都被添加了一个计算万次执行消耗时间的功能，将这个功能抽取到一个方法中，换句话说就是存放共性功能的方法，我们给起了个名字叫&#x3D;&#x3D;通知&#x3D;&#x3D;</p>
-<p>(4)通知是要增强的内容，会有多个，切入点是需要被增强的方法，也会有多个，那哪个切入点需要添加哪个通知，就需要提前将它们之间的关系描述清楚，那么对于通知和切入点之间的关系描述，我们给起了个名字叫&#x3D;&#x3D;切面&#x3D;&#x3D;</p>
-<p>(5)通知是一个方法，方法不能独立存在需要被写在一个类中，这个类我们也给起了个名字叫&#x3D;&#x3D;通知类&#x3D;&#x3D;</p>
-<p>至此AOP中的核心概念就已经介绍完了，总结下:</p>
+<p>(1)前面一直在强调，Spring的AOP是对一个类的方法在不进行任何修改的前提下实现增强。对于上面的案例中BookServiceImpl中有<code>save</code>,<code>update</code>,<code>delete</code>和<code>select</code>方法,这些方法我们给起了一个名字叫<strong>连接点</strong></p>
+<p>(2)在BookServiceImpl的四个方法中，<code>update</code>和<code>delete</code>只有打印没有计算万次执行消耗时间，但是在运行的时候已经有该功能，那也就是说<code>update</code>和<code>delete</code>方法都已经被增强，所以对于需要增强的方法我们给起了一个名字叫<strong>切入点</strong></p>
+<p>(3)执行BookServiceImpl的update和delete方法的时候都被添加了一个计算万次执行消耗时间的功能，将这个功能抽取到一个方法中，换句话说就是存放共性功能的方法，我们给起了个名字叫<strong>通知</strong></p>
+<p>(4)通知是要增强的内容，会有多个，切入点是需要被增强的方法，也会有多个，那哪个切入点需要添加哪个通知，就需要提前将它们之间的关系描述清楚，那么对于通知和切入点之间的关系描述，我们给起了个名字叫<strong>切面</strong></p>
+<p>(5)通知是一个方法，方法不能独立存在需要被写在一个类中，这个类我们也给起了个名字叫<strong>通知类</strong></p>
+<p><strong>小结：</strong></p>
 <ul>
 <li>连接点(JoinPoint)：程序执行过程中的任意位置，粒度为执行方法、抛出异常、设置变量等<ul>
 <li>在SpringAOP中，理解为方法的执行</li>
 </ul>
 </li>
-<li>切入点(Pointcut):匹配连接点的式子<ul>
+<li>切入点(Pointcut)：匹配连接点的式子<ul>
 <li>在SpringAOP中，一个切入点可以描述一个具体方法，也可也匹配多个方法<ul>
 <li>一个具体的方法:如com.itheima.dao包下的BookDao接口中的无形参无返回值的save方法</li>
 <li>匹配多个方法:所有的save方法，所有的get开头的方法，所有以Dao结尾的接口中的任意方法，所有带有一个参数的方法</li>
@@ -204,26 +203,12 @@
 <li>连接点范围要比切入点范围大，是切入点的方法也一定是连接点，但是是连接点的方法就不一定要被增强，所以可能不是切入点。</li>
 </ul>
 </li>
-<li>通知(Advice):在切入点处执行的操作，也就是共性功能<ul>
+<li>通知(Advice)：在切入点处执行的操作，也就是共性功能<ul>
 <li>在SpringAOP中，功能最终以方法的形式呈现</li>
 </ul>
 </li>
 <li>通知类：定义通知的类</li>
-<li>切面(Aspect):描述通知与切入点的对应关系。</li>
-</ul>
-<p><strong>小结</strong></p>
-<p>这一节中主要讲解了AOP的概念与作用，以及AOP中的核心概念，学完以后大家需要能说出:</p>
-<ul>
-<li>什么是AOP?</li>
-<li>AOP的作用是什么?</li>
-<li>AOP中核心概念分别指的是什么?<ul>
-<li>连接点</li>
-<li>切入点</li>
-<li>通知</li>
-<li>通知类</li>
-<li>切面</li>
-</ul>
-</li>
+<li>切面(Aspect)：描述通知与切入点的对应关系。</li>
 </ul>
 <h2 id="2，AOP入门案例"><a href="#2，AOP入门案例" class="headerlink" title="2，AOP入门案例"></a>2，AOP入门案例</h2><h3 id="2-1-需求分析"><a href="#2-1-需求分析" class="headerlink" title="2.1 需求分析"></a>2.1 需求分析</h3><p>案例设定：测算接口执行效率，但是这个案例稍微复杂了点，我们对其进行简化。</p>
 <p>简化设定：在方法执行前输出当前系统时间。</p>
